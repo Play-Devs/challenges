@@ -28,4 +28,4 @@ Seja você um desenvolvedor em início de carreira ou um expert em busca de desa
 
 ## _Quer mais !?_
 Você pode sugerir novos desafios e colaborar com a evolução da comunidade! 
-Basta abrir uma **[Issue](https://github.com/gabrielmoodlight/playdev-challenges/issues)**
+Basta abrir uma **[Issue](https://github.com/Play-Dev-Community/challenges/issues)**
