@@ -36,7 +36,7 @@ O objetivo deste projeto é resolver o problema comum de organização pessoal. 
 ├── styles.css         # Estilos da aplicação
 ├── script.js          # Funções e lógicas de interação
 └── README.md          # Documentação do projeto
-
+```
 ## 🖥️ Como Rodar o Projeto
 Para visualizar e executar este projeto, siga os passos abaixo:
 
