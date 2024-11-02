@@ -1,4 +1,4 @@
-## 🎯 Desafio da Semana (01/11/2024)
+## 🎯 Desafio da Semana (08/11/2024)
 
 ### **Web Solutions para o Mundo Real**
 
@@ -11,6 +11,7 @@
    - O problema que está resolvendo.
    - Principais funcionalidades.
    - Desafios enfrentados e decisões técnicas.
+   - Veja o [Exemplo de Documentação](./DOC_EXAMPLE.md)
 
 **Critérios de Avaliação**:
 - **Impacto da Solução**: Criatividade e relevância para resolver um problema do cotidiano.
@@ -21,7 +22,7 @@
 
 ## 🌟 Premiação
 
-O vencedor da semana será reconhecido como **@Vencedor da Semana** na nossa comunidade no Discord, ganhando diversos benefícios como:
+O vencedor da semana será destacado como **@Vencedor da Semana** na nossa comunidade no Discord, ganhando diversos benefícios como:
 - 🧪 **XP Boost de 20%**
 - 🪙 **2500 DevCoins**
 - 📢 **1 menção a @everyone**

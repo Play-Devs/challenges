@@ -6,7 +6,7 @@ Seja você um desenvolvedor em início de carreira ou um expert em busca de desa
 - **Toda sexta-feira**: Um novo desafio é postado, pronto para te tirar da zona de conforto.
 - **De sábado a terça-feira**: Você tem o tempo para desenvolver e enviar sua solução.
 - **Quarta e quinta-feira**: Avaliaremos as soluções enviadas, olhando as regras de cada desafio.
-- **Toda sexta-feira**: Celebramos o(a) vencedor(a) e divulgamos o próximo desafio.
+- **Toda sexta-feira**: Celebramos o(a) **@Vencedor(a) da Semana** e divulgamos o próximo desafio.
 
 ## 📏 **Regras Simples, Desafios Reais**
 1. Faça um **Fork** deste repositório e crie uma branch com seu nome (ex: `maria-silva-desafio1`).
@@ -25,6 +25,11 @@ Seja você um desenvolvedor em início de carreira ou um expert em busca de desa
 1. Faça o **fork** do repositório e veja o desafio atual.
 2. Desenvolva sua solução.
 3. Submeta seu **Pull Request**.
+
+## 👨🏻‍💻 **Desafio Atual**
+| Título                             | Postado em | Vencedor |
+| ---------------------------------- | ---------- | -------- |
+| [Landing Page](https://google.com) | 01/11/2024 |          |
 
 ## _Quer mais !?_
 Você pode sugerir novos desafios e colaborar com a evolução da comunidade! 
