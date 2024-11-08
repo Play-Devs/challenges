@@ -27,9 +27,9 @@ Seja você um desenvolvedor em início de carreira ou um expert em busca de desa
 3. Submeta seu **Pull Request**.
 
 ## 👨🏻‍💻 **Desafio Atual**
-| Título                             | Postado em | Vencedor |
-| ---------------------------------- | ---------- | -------- |
-| [Landing Page](./landing-page) | 08/11/2024 |          |
+| Título                                     | Postado em | Vencedor |
+| ------------------------------------------ | ---------- | -------- |
+| [Daily Web Solution](./daily-web-solution) | 08/11/2024 |          |
 
 ## _Quer mais !?_
 Você pode sugerir novos desafios e colaborar com a evolução da comunidade! 
