@@ -1,6 +1,6 @@
-# 🚀 **Play Dev Challenges**: Supere-se a cada semana! 💡
+# 🚀 **Play Devs Challenges**: Supere-se a cada semana! 💡
 
-Seja você um desenvolvedor em início de carreira ou um expert em busca de desafios, o **Play Dev Challenges** é o lugar certo para testar suas habilidades, aprender com a comunidade e conquistar novos patamares na programação. Toda semana, lançamos um novo desafio para aguçar sua criatividade e aprimorar suas técnicas.
+Seja você um desenvolvedor em início de carreira ou um expert em busca de desafios, **Play Devs Challenges** é o lugar certo para testar suas habilidades, aprender com a comunidade e conquistar novos patamares na programação. Toda semana, lançamos um novo desafio para aguçar sua criatividade e aprimorar suas técnicas.
 
 ## 🔥 **Como Funciona?**
 - **Toda sexta-feira**: Um novo desafio é postado, pronto para te tirar da zona de conforto.
@@ -29,8 +29,8 @@ Seja você um desenvolvedor em início de carreira ou um expert em busca de desa
 ## 👨🏻‍💻 **Desafio Atual**
 | Título                             | Postado em | Vencedor |
 | ---------------------------------- | ---------- | -------- |
-| [Landing Page](https://google.com) | 01/11/2024 |          |
+| [Landing Page](./landing-page) | 08/11/2024 |          |
 
 ## _Quer mais !?_
 Você pode sugerir novos desafios e colaborar com a evolução da comunidade! 
-Basta abrir uma **[Issue](https://github.com/Play-Dev-Community/challenges/issues)**
+Basta abrir uma **[Issue](https://github.com/Play-Devs/challenges/issues)**
