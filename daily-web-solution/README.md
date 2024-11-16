@@ -24,6 +24,6 @@
 
 O vencedor da semana será destacado como **@Vencedor da Semana** na nossa comunidade no Discord, ganhando diversos benefícios como:
 - 🧪 **20% de XP Boost**
-- 🪙 **5000 DevCoins**
+- 🪙 **3000 DevCoins**
 - 📢 **1 menção a @everyone ou @Membros**
-- 🎓 **2 Sessões de Mentoria Gratuita - Dominando a Web**
+- 🎓 **1 Sessão de Mentoria Particular - Dominando a Web**
