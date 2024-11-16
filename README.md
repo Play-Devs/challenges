@@ -7,6 +7,7 @@ Seja você um desenvolvedor em início de carreira ou um expert em busca de desa
 - **De sábado a terça-feira**: Você tem o tempo para desenvolver e enviar sua solução.
 - **Quarta e quinta-feira**: Avaliaremos as soluções enviadas, olhando as regras de cada desafio.
 - **Toda sexta-feira**: Celebramos o(a) **@Vencedor(a) da Semana** e divulgamos o próximo desafio.
+- **Feriado**: Caso seja feriado, o desafio prevalecerá por mais 1 semana. 
 
 ## 📏 **Regras Simples, Desafios Reais**
 1. Faça um **Fork** deste repositório e crie uma branch com seu nome (ex: `maria-silva-desafio1`).
