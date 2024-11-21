@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #5c6bc0;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3f51b5;
+        }
+
+        .filter {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter button {
+            background-color: #e0e0e0;
+            color: #333;
+            margin: 0 5px;
+            font-size: 14px;
+        }
+
+        .filter button:hover {
+            background-color: #c5c5c5;
+        }
+
+        #taskList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .task.completed {
+            text-decoration: line-through;
+            background-color: #dcedc8;
+        }
+
+        .task:hover {
+            transform: scale(1.02);
+        }
+
+        .task .date {
+            font-size: 12px;
+            color: #888;
+            margin-left: 10px;
+        }
+
+        button.remove {
+            background-color: #e57373;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        button.remove:hover {
+            background-color: #f44336;
+        }
+
+        button.edit {
+            background-color: #ffb74d;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        button.edit:hover {
+            background-color: #ff9800;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input, button {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .filter button {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciador de Tarefas</h1>
+        <input type="text" id="taskInput" placeholder="Adicione uma nova tarefa">
+        <button id="addTaskButton">Adicionar</button>
+        
+        <div class="filter">
+            <button id="filterAll">Todas</button>
+            <button id="filterCompleted">Concluídas</button>
+            <button id="filterPending">Pendentes</button>
+        </div>
+        
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addTaskButton = document.getElementById('addTaskButton');
+        const taskList = document.getElementById('taskList');
+        const filterAll = document.getElementById('filterAll');
+        const filterCompleted = document.getElementById('filterCompleted');
+        const filterPending = document.getElementById('filterPending');
+    
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];  // Carrega as tarefas do localStorage
+    
+        // Função para salvar as tarefas no localStorage
+        function saveTasks() {
+            localStorage.setItem('tasks', JSON.stringify(tasks));  // Salva as tarefas no localStorage
+        }
+    
+        // Função para renderizar as tarefas
+        function renderTasks(filter = 'all') {
+            taskList.innerHTML = ''; // Limpa a lista
+            tasks
+                .filter(task => {
+                    if (filter === 'completed') return task.completed;
+                    if (filter === 'pending') return !task.completed;
+                    return true;
+                })
+                .forEach((task, index) => {
+                    const li = document.createElement('li');
+                    li.className = `task ${task.completed ? 'completed' : ''}`;
+                    li.innerHTML = `
+                        <span>${task.text}</span>
+                        <span class="date">${task.date}</span>
+                        <div>
+                            <button class="remove" onclick="removeTask(${index})">Excluir</button>
+                            <button onclick="toggleTask(${index})">${task.completed ? 'Desmarcar' : 'Concluir'}</button>
+                            <button class="edit" onclick="editTask(${index})">Editar</button>
+                        </div>
+                    `;
+                    taskList.appendChild(li);
+                });
+        }
+    
+        // Função para adicionar tarefa
+        addTaskButton.addEventListener('click', () => {
+            const taskText = taskInput.value.trim();
+            if (taskText) {
+                const date = new Date().toLocaleString();
+                tasks.push({ text: taskText, completed: false, date: date });
+                taskInput.value = '';
+                saveTasks();  // Salva as tarefas no localStorage
+                renderTasks();
+            }
+        });
+    
+        // Função para remover tarefa
+        function removeTask(index) {
+            tasks.splice(index, 1);
+            saveTasks();  // Atualiza o localStorage
+            renderTasks();
+        }
+    
+        // Função para alternar o status da tarefa
+        function toggleTask(index) {
+            tasks[index].completed = !tasks[index].completed;
+            saveTasks();  // Atualiza o localStorage
+            renderTasks();
+        }
+
+        // Função para editar tarefa
+        function editTask(index) {
+            const newText = prompt('Edite a tarefa:', tasks[index].text);
+            if (newText) {
+                tasks[index].text = newText;
+                saveTasks();  // Atualiza o localStorage
+                renderTasks();
+            }
+        }
+    
+        // Funções para filtrar tarefas
+        filterAll.addEventListener('click', () => renderTasks('all'));
+        filterCompleted.addEventListener('click', () => renderTasks('completed'));
+        filterPending.addEventListener('click', () => renderTasks('pending'));
+    
+        // Inicializa a lista de tarefas
+        renderTasks();
+    </script>
+</body>
+</html>

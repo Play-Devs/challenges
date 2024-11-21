@@ -1,34 +1,52 @@
-# 🚀 **Play Devs Challenges**: Supere-se a cada semana! 💡
+# Gerenciador de Tarefas
 
-Seja você um desenvolvedor em início de carreira ou um expert em busca de desafios, **Play Devs Challenges** é o lugar certo para testar suas habilidades, aprender com a comunidade e conquistar novos patamares na programação. Toda semana, lançamos um novo desafio para aguçar sua criatividade e aprimorar suas técnicas.
+O Gerenciador de Tarefas é uma aplicação simples que permite gerenciar suas tarefas diárias de forma eficiente. Com ele, você pode adicionar, editar, excluir e marcar tarefas como concluídas. As tarefas são armazenadas localmente no navegador, utilizando o `localStorage`, garantindo que as informações sejam preservadas mesmo após o fechamento da página.
 
-## 🔥 **Como Funciona?**
-- **Toda sexta-feira**: Um novo desafio é postado, pronto para te tirar da zona de conforto.
-- **De sábado a terça-feira**: Você tem o tempo para desenvolver e enviar sua solução.
-- **Quarta e quinta-feira**: Avaliaremos as soluções enviadas, olhando as regras de cada desafio.
-- **Toda sexta-feira**: Celebramos o(a) **@Vencedor(a) da Semana** e divulgamos o próximo desafio.
-- **Feriado**: Caso seja feriado, o desafio prevalecerá por mais 1 semana. 
+## Funcionalidades
 
-## 📏 **Regras Simples, Desafios Reais**
-1. Faça um **Fork** deste repositório e crie uma branch com seu nome (ex: `maria-silva-desafio1`).
-2. Construa sua solução e submeta via **Pull Request**.
-3. Os critérios de avaliação são definidos para cada desafio.
+- **Adicionar Tarefa**: Insira uma tarefa no campo de texto e clique em "Adicionar" para incluí-la na lista.
+- **Editar Tarefa**: Clique em "Editar" ao lado de uma tarefa para modificar seu conteúdo.
+- **Excluir Tarefa**: Clique em "Excluir" para remover uma tarefa da lista.
+- **Concluir/Desmarcar Tarefa**: Marque a tarefa como concluída ou desmarque-a para indicá-la como pendente.
+- **Filtrar Tarefas**: Utilize os filtros para exibir todas as tarefas, apenas as concluídas ou apenas as pendentes.
 
-## 🏅 **Por que participar?**
-- **Reconhecimento**: Destaque-se na nossa comunidade crescente de devs talentosos.
-- **Recompensas**: Além de aprendizado, você pode ganhar **DevCoins** e outros prêmios.
-- **Networking**: Conecte-se com pessoas incríveis que compartilham a mesma paixão por tecnologia e inovação!
+## Tecnologias Utilizadas
 
-## 🎯 **Pronto para entrar na ação?**
-1. Faça o **fork** do repositório e veja o desafio atual.
-2. Desenvolva sua solução.
-3. Submeta seu **Pull Request**.
+- **HTML5**: Estrutura e conteúdo da página.
+- **CSS3**: Estilo e layout responsivo.
+- **JavaScript**: Interatividade e gerenciamento das tarefas no navegador.
 
-## 👨🏻‍💻 **Desafio Atual**
-| Título                                     | Postado em | Vencedor |
-| ------------------------------------------ | ---------- | -------- |
-| [Daily Web Solution](./daily-web-solution) | 08/11/2024 |          |
+## Como Funciona
 
-## _Quer mais !?_
-Você pode sugerir novos desafios e colaborar com a evolução da comunidade! 
-Basta abrir uma **[Issue](https://github.com/Play-Devs/challenges/issues)**
+### HTML
+
+- A estrutura HTML é simples e funcional, incluindo um campo de input para inserir novas tarefas, botões para filtrar as tarefas e uma lista não ordenada (`<ul>`) para exibir as tarefas adicionadas.
+
+### CSS
+
+- O design é responsivo e adaptável a diferentes tamanhos de tela, com um layout centralizado.
+- Estilos personalizados para destacar tarefas concluídas, além de animações suaves nos botões e interações.
+
+### JavaScript
+
+- As tarefas são armazenadas no `localStorage`, garantindo persistência entre sessões.
+- Funções interativas para adicionar, editar, excluir, concluir e desmarcar tarefas.
+- Filtros que permitem exibir tarefas com status específicos: concluídas, pendentes ou todas.
+
+## Como Usar
+
+1. Abra o arquivo `index.html` no seu navegador.
+2. No campo de texto, insira uma nova tarefa e clique em "Adicionar" para incluí-la na lista.
+3. Utilize os botões de edição, exclusão e conclusão para interagir com as tarefas.
+4. Use os filtros para visualizar tarefas de acordo com seu status: "Todas", "Concluídas" ou "Pendentes".
+
+
+## Contribuindo
+
+Contribuições são bem-vindas! Se você quiser melhorar este projeto ou adicionar novas funcionalidades, sinta-se à vontade para enviar um **pull request** ou criar um **issue**.
+
+## Licença
+
+Este projeto é de código aberto e distribuído sob a licença **MIT**.
+
+
