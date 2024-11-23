@@ -27,7 +27,7 @@ Seja você um desenvolvedor em início de carreira ou um expert em busca de desa
 ## 📃 **Histórico de Desafios**
 | Título                                     | Postado em | Vencedor |
 | ------------------------------------------ | ---------- | -------- |
-| [Daily Web Solution](./daily-web-solution) | 08/11/2024 |     [![OseaisSilva021](https://github.com/OseiasSilva021.png)](https://github.com/OseiasSilva021)     |
+| [Daily Web Solution](./daily-web-solution) | 08/11/2024 |     <a href="https://github.com/OseiasSilva021" target="_blank"><img src="https://github.com/OseiasSilva021.png" width="200"/></a>     |
 | [Text Editor](./text-editor)               | 22/11/2024 |          |
 
 ## _Quer mais !?_
