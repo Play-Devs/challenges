@@ -48,5 +48,3 @@ Contribuições são bem-vindas! Se você quiser melhorar este projeto ou adicio
 ## Licença
 
 Este projeto é de código aberto e distribuído sob a licença **MIT**.
-
-
