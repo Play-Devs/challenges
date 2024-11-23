@@ -11,7 +11,7 @@
    - O problema que está resolvendo.
    - Principais funcionalidades.
    - Desafios enfrentados e decisões técnicas.
-   - Veja o [Exemplo de Documentação](./DOC_EXAMPLE.md)
+   - Veja o [Exemplo de Documentação](../DOC_EXAMPLE.md)
 
 **Critérios de Avaliação**:
 - **Impacto da Solução**: Criatividade e relevância para resolver um problema do cotidiano.

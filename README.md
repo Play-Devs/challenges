@@ -24,10 +24,11 @@ Seja você um desenvolvedor em início de carreira ou um expert em busca de desa
 2. Desenvolva sua solução.
 3. Submeta seu **Pull Request**.
 
-## 👨🏻‍💻 **Desafio Atual**
+## 📃 **Histórico de Desafios**
 | Título                                     | Postado em | Vencedor |
 | ------------------------------------------ | ---------- | -------- |
-| [Daily Web Solution](./daily-web-solution) | 08/11/2024 |          |
+| [Daily Web Solution](./daily-web-solution) | 08/11/2024 |     [![OseaisSilva021](https://github.com/OseiasSilva021.png)](https://github.com/OseiasSilva021)     |
+| [Text Editor](./text-editor)               | 22/11/2024 |          |
 
 ## _Quer mais !?_
 Você pode sugerir novos desafios e colaborar com a evolução da comunidade! 

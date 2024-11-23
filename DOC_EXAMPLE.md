@@ -1,4 +1,4 @@
-# 📌 Nome do Projeto: Web Solutions para o Mundo Real
+# 📌 Nome do Projeto
 
 ## 📋 Resumo do Projeto
 
@@ -72,4 +72,5 @@ Este projeto é open-source e aceito contribuições para melhorias e novas func
 
 ## 📬 Contato
 Desenvolvido por @SeuNome. Fique à vontade para entrar em contato e contribuir!
+
 **Informe o seu usuário no Discord!**
