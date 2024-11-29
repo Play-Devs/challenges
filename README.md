@@ -11,7 +11,7 @@ Seja você um desenvolvedor em início de carreira ou um expert em busca de desa
 
 ## 📏 **Regras Simples, Desafios Reais**
 1. Faça um **Fork** deste repositório e crie uma branch com seu nome (ex: `maria-silva-desafio1`).
-2. Construa sua solução e submeta via **Pull Request**.
+2. Dentro da pasta do desafio, construa sua solução e submeta via **Pull Request**.
 3. Os critérios de avaliação são definidos para cada desafio.
 
 ## 🏅 **Por que participar?**
