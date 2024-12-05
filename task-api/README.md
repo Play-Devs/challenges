@@ -1,112 +1,170 @@
-## 🎯 Desafio da Semana (30/11/2024)
 
-### 📝 Criando uma API RESTful para Gerenciamento de Tarefas
 
-Seja bem-vindo(a) ao desafio da semana na **Play Devs**! 🎉  
-O foco desta vez é **Back-End**, e o objetivo é criar uma **API RESTful** que permita o gerenciamento de tarefas de forma simples e eficiente. Você terá a oportunidade de explorar conceitos de APIs e colocar suas habilidades em prática. 🚀
+# Task API
 
----
+Esta é uma API simples para gerenciar tarefas, construída usando Node.js, Express e MongoDB, oferecendo funcionalidades básicas de CRUD (Create, Read, Update, Delete) para manipulação de tarefas.
 
-### 🎯 **Objetivo do Desafio**
+## Funcionalidades
 
-Você deve desenvolver uma API RESTful que inclua as seguintes funcionalidades:
-1. Criar tarefas com título e descrição.
-2. Listar todas as tarefas.
-3. Atualizar o status das tarefas (pendente/concluída).
-4. Excluir tarefas.
+- **Criar tarefas**: Adicionar novas tarefas com título e descrição
+- **Listar todas as tarefas**: Visualizar todas as tarefas armazenadas no banco de dados
+- **Atualizar tarefas**: Modificar o título, descrição ou status de uma tarefa
+- **Deletar tarefas**: Remover uma tarefa pelo seu identificador único
 
-A linguagem e as ferramentas são livres, mas criatividade e organização serão essenciais para se destacar!
+## Pré-requisitos
 
----
+Antes de começar, certifique-se de ter instalado:
 
-### 🚀 **Requisitos**
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- [npm](https://www.npmjs.com/) (geralmente instalado com Node.js)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) ou outro serviço de banco de dados MongoDB
 
-#### **Funcionalidades Obrigatórias**
-- **CRUD Completo**:
-  - **Create**: Endpoint para adicionar novas tarefas.
-  - **Read**: Endpoint para listar todas as tarefas.
-  - **Update**: Endpoint para atualizar o título, descrição ou status de uma tarefa.
-  - **Delete**: Endpoint para excluir uma tarefa pelo ID.
-  
-- **Estrutura de Dados Simples**:
-  Cada tarefa deve conter os seguintes campos:
+## Instalação
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/task-api.git
+cd task-api
+```
+
+### 2. Instalar dependências
+
+```bash
+npm install
+```
+
+### 3. Configurar variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+```env
+MONGO_URI=mongodb+srv://<usuario>:<senha>@cluster0.deyip.mongodb.net/taskdb?retryWrites=true&w=majority
+PORT=3000
+```
+
+**Nota**: Substitua `<usuario>`, `<senha>`, e ajuste a URL do MongoDB conforme suas credenciais.
+
+### 4. Iniciar o servidor
+
+```bash
+npm start
+```
+
+O servidor estará disponível em `http://localhost:3000`
+
+## Endpoints da API
+
+### 1. Criar Tarefa
+
+- **URL**: `/api/tasks`
+- **Método**: `POST`
+- **Corpo da Requisição**:
   ```json
   {
-    "id": "uuid",
-    "title": "string",
-    "description": "string",
-    "status": "pending" | "completed"
+    "title": "Título da tarefa",
+    "description": "Descrição da tarefa"
   }
   ```
+- **Resposta de Sucesso**:
+  - **Código**: 201 Created
+  - **Corpo**:
+    ```json
+    {
+      "_id": "id-da-tarefa",
+      "title": "Título da tarefa",
+      "description": "Descrição da tarefa",
+      "status": "pendente"
+    }
+    ```
 
-- **Validações**:
-  - O campo title é obrigatório.
-  - O campo description deve ter no máximo 250 caracteres.
-  
-#### Funcionalidades Opcionais (para ganhar pontos extras):
-- Filtros:
-  - Buscar tarefas com base no status (pendente ou concluída).
-  - Buscar tarefas por palavra-chave no título ou descrição.
-- Paginação:
-  - Implementar paginação no endpoint de listagem.
-- Autenticação:
-  - Adicionar autenticação básica (JWT, API Key ou outro método simples).
+### 2. Listar Tarefas
 
----
+- **URL**: `/api/tasks`
+- **Método**: `GET`
+- **Resposta de Sucesso**:
+  - **Código**: 200 OK
+  - **Corpo**:
+    ```json
+    [
+      {
+        "_id": "id-da-tarefa",
+        "title": "Título da tarefa",
+        "description": "Descrição da tarefa",
+        "status": "pendente"
+      }
+    ]
+    ```
 
-### 🛠️ **Ferramentas Sugeridas**
+### 3. Atualizar Tarefa
 
-#### **Linguagens e Frameworks**:
-- **Node.js**: `Express.js`, `NestJS`.
-- **Python**: `Flask`, `FastAPI`, `Django REST Framework`.
-- **PHP**: `Laravel`, `Slim Framework`.
-- **C#**: `ASP.NET Core`.
+- **URL**: `/api/tasks/:id`
+- **Método**: `PUT`
+- **Corpo da Requisição**:
+  ```json
+  {
+    "title": "Novo título",
+    "description": "Nova descrição",
+    "status": "concluída"
+  }
+  ```
+- **Resposta de Sucesso**:
+  - **Código**: 200 OK
+  - **Corpo**:
+    ```json
+    {
+      "_id": "id-da-tarefa",
+      "title": "Novo título",
+      "description": "Nova descrição",
+      "status": "concluída"
+    }
+    ```
 
-#### **Bancos de Dados**:
-- **SQL**: SQLite, PostgreSQL, MySQL.
-- **NoSQL**: MongoDB, Firebase.
+### 4. Deletar Tarefa
 
-#### **Ferramentas de Teste**:
-- **Postman** ou **APIDog** para testar os endpoints.
+- **URL**: `/api/tasks/:id`
+- **Método**: `DELETE`
+- **Resposta de Sucesso**:
+  - **Código**: 200 OK
+  - **Corpo**:
+    ```json
+    {
+      "message": "Tarefa deletada com sucesso"
+    }
+    ```
 
----
+## Testando com Postman
 
-### ✅ **Critérios de Avaliação**
+Você pode usar o Postman para testar os endpoints da API:
 
-Sua solução será avaliada com base nos seguintes critérios:
+1. **Criar Tarefa**
+   - Método: `POST`
+   - URL: `http://localhost:3000/api/tasks`
+   - Corpo: JSON com título e descrição
 
-#### **1. Funcionalidade**
-- Atende a todos os requisitos obrigatórios?
-- Funcionalidades opcionais foram implementadas?
+2. **Listar Tarefas**
+   - Método: `GET`
+   - URL: `http://localhost:3000/api/tasks`
 
-#### **2. Código e Organização**
-- O código é limpo e bem estruturado?
-- As boas práticas foram seguidas?
-- Existe separação clara entre camadas (se aplicável)?
+3. **Atualizar Tarefa**
+   - Método: `PUT`
+   - URL: `http://localhost:3000/api/tasks/:id` (substituir `:id` pelo ID real da tarefa)
+   - Corpo: JSON com campos a serem atualizados
 
-#### **3. Documentação**
-- Há um arquivo `README.md` claro explicando como rodar e testar a API?
-- A documentação dos endpoints está bem descrita?
+4. **Deletar Tarefa**
+   - Método: `DELETE`
+   - URL: `http://localhost:3000/api/tasks/:id` (substituir `:id` pelo ID real da tarefa)
 
-#### **4. Criatividade**
-- Há alguma funcionalidade ou diferencial criativo?
+## Contribuindo
 
----
+Se você deseja contribuir para este projeto:
 
-### 📬 **Entrega do Projeto**
+1. Faça um fork do repositório
+2. Crie uma nova branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas alterações (`git commit -am 'Adicionando nova feature'`)
+4. Envie para o repositório remoto (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
 
-- Submeta seu projeto dentro da pasta do desafio da semana no repositório.
-- Inclua um arquivo `README.md` explicando como rodar e utilizar o editor de texto.
+## Licença
 
----
-
-### 🌟 **Premiação**
-
-O vencedor será reconhecido como **@Vencedor da Semana**, recebendo:
-- 🧪 **20% de XP Boost**
-- 🪙 **3000 DevCoins**
-- 📢 **Destaque na comunidade com direito a @everyone**
-
----
-
-🎉 **Boa sorte e divirta-se codando!** Estamos ansiosos para ver o que você vai criar. 🚀
+Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
