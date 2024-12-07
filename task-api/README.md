@@ -1,4 +1,4 @@
-## 🎯 Desafio da Semana (30/11/2024)
+## 🎯 Desafio da Semana (06/11/2024)
 
 ### 📝 Criando uma API RESTful para Gerenciamento de Tarefas
 
