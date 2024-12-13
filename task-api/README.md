@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-## 🎯 Desafio da Semana (06/12/2024)
-
-### 📝 Criando uma API RESTful para Gerenciamento de Tarefas
-
-Seja bem-vindo(a) ao desafio da semana na **Play Devs**! 🎉  
-O foco desta vez é **Back-End**, e o objetivo é criar uma **API RESTful** que permita o gerenciamento de tarefas de forma simples e eficiente. Você terá a oportunidade de explorar conceitos de APIs e colocar suas habilidades em prática. 🚀
-
-=======
 # 📝 Task API
 Uma API RESTful para gerenciamento de tarefas, desenvolvida com Node.js, Express e MongoDB. 🚀🔧
->>>>>>> a8b213c6606a3039938ccaefc83b15e6490f43c0
 ---
 ## **Recursos da API** 📋
 - **Listar todas as tarefas**: `GET /api/tasks` 📜
@@ -130,26 +120,5 @@ Se você está começando com o MongoDB, siga este guia para configurá-lo: 📚
 ## **Contribuições** 🤝
 Contribuições são bem-vindas! Abra uma **issue** ou envie um **pull request** com melhorias. 🚀
 ---
-<<<<<<< HEAD
-
-### 📬 **Entrega do Projeto**
-
-- Submeta seu projeto dentro da pasta do desafio da semana no repositório.
-- Inclua um arquivo `README.md` explicando como rodar e utilizar o editor de texto.
-
----
-
-### 🌟 **Premiação**
-
-O vencedor será reconhecido como **@Vencedor da Semana**, recebendo:
-- 🧪 **20% de XP Boost**
-- 🪙 **3000 DevCoins**
-- 📢 **Destaque na comunidade com direito a @everyone**
-
----
-
-🎉 **Boa sorte e divirta-se codando!** Estamos ansiosos para ver o que você vai criar. 🚀
-=======
 ## **Licença** 📄
 Este projeto está licenciado sob a Licença MIT. ⚖️
->>>>>>> a8b213c6606a3039938ccaefc83b15e6490f43c0
