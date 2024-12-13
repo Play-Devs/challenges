@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## 🎯 Desafio da Semana (06/12/2024)
 
 ### 📝 Criando uma API RESTful para Gerenciamento de Tarefas
@@ -5,93 +6,131 @@
 Seja bem-vindo(a) ao desafio da semana na **Play Devs**! 🎉  
 O foco desta vez é **Back-End**, e o objetivo é criar uma **API RESTful** que permita o gerenciamento de tarefas de forma simples e eficiente. Você terá a oportunidade de explorar conceitos de APIs e colocar suas habilidades em prática. 🚀
 
+=======
+# 📝 Task API
+Uma API RESTful para gerenciamento de tarefas, desenvolvida com Node.js, Express e MongoDB. 🚀🔧
+>>>>>>> a8b213c6606a3039938ccaefc83b15e6490f43c0
 ---
-
-### 🎯 **Objetivo do Desafio**
-
-Você deve desenvolver uma API RESTful que inclua as seguintes funcionalidades:
-1. Criar tarefas com título e descrição.
-2. Listar todas as tarefas.
-3. Atualizar o status das tarefas (pendente/concluída).
-4. Excluir tarefas.
-
-A linguagem e as ferramentas são livres, mas criatividade e organização serão essenciais para se destacar!
-
+## **Recursos da API** 📋
+- **Listar todas as tarefas**: `GET /api/tasks` 📜
+- **Criar uma nova tarefa**: `POST /api/tasks` ➕
+- **Atualizar uma tarefa existente**: `PUT /api/tasks/:id` 🔄
+- **Excluir uma tarefa**: `DELETE /api/tasks/:id` ❌
 ---
-
-### 🚀 **Requisitos**
-
-#### **Funcionalidades Obrigatórias**
-- **CRUD Completo**:
-  - **Create**: Endpoint para adicionar novas tarefas.
-  - **Read**: Endpoint para listar todas as tarefas.
-  - **Update**: Endpoint para atualizar o título, descrição ou status de uma tarefa.
-  - **Delete**: Endpoint para excluir uma tarefa pelo ID.
-  
-- **Estrutura de Dados Simples**:
-  Cada tarefa deve conter os seguintes campos:
+## **Como Rodar o Projeto Localmente** 💻
+### **Pré-requisitos** 🛠️
+- Node.js (versão 16 ou superior) 🟢
+- MongoDB configurado e em execução 🍃
+### **Passo a Passo** 👣
+1. Clone este repositório: 📦
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   cd task-api
+   ```
+2. Instale as dependências: 📦
+   ```bash
+   npm install
+   ```
+3. Crie um arquivo `.env` na raiz do projeto e configure as variáveis de ambiente. Exemplo: 🔐
+   ```env
+   MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
+   ```
+   > Substitua `<username>`, `<password>`, `<cluster>` e `<database>` pelos valores do seu banco MongoDB. 🔑
+4. Inicie o servidor: 🚀
+   ```bash
+   npm start
+   ```
+5. Acesse a API em: `http://localhost:3000` 🌐
+---
+## **Testando com o Postman** 🧪
+### **1. Listar todas as tarefas** 📋
+- **Método:** `GET` 🔍
+- **URL:** `http://localhost:3000/api/tasks` 🌐
+- **Resposta esperada:** 📥
+  ```json
+  [
+    {
+      "_id": "id_da_tarefa",
+      "title": "Título da Tarefa",
+      "description": "Descrição da Tarefa",
+      "createdAt": "2024-12-13T00:00:00.000Z"
+    }
+  ]
+  ```
+### **2. Criar uma nova tarefa** ➕
+- **Método:** `POST` 📤
+- **URL:** `http://localhost:3000/api/tasks` 🌐
+- **Corpo (JSON):** 📋
   ```json
   {
-    "id": "uuid",
-    "title": "string",
-    "description": "string",
-    "status": "pending" | "completed"
+    "title": "Nova Tarefa",
+    "description": "Descrição da nova tarefa"
   }
   ```
-
-- **Validações**:
-  - O campo title é obrigatório.
-  - O campo description deve ter no máximo 250 caracteres.
-  
-#### Funcionalidades Opcionais (para ganhar pontos extras):
-- Filtros:
-  - Buscar tarefas com base no status (pendente ou concluída).
-  - Buscar tarefas por palavra-chave no título ou descrição.
-- Paginação:
-  - Implementar paginação no endpoint de listagem.
-- Autenticação:
-  - Adicionar autenticação básica (JWT, API Key ou outro método simples).
-
+- **Resposta esperada:** 📥
+  ```json
+  {
+    "_id": "id_da_tarefa",
+    "title": "Nova Tarefa",
+    "description": "Descrição da nova tarefa",
+    "createdAt": "2024-12-13T00:00:00.000Z"
+  }
+  ```
+### **3. Atualizar uma tarefa existente** 🔄
+- **Método:** `PUT` ✏️
+- **URL:** `http://localhost:3000/api/tasks/:id` 🌐
+- **Corpo (JSON):** 📋
+  ```json
+  {
+    "title": "Tarefa Atualizada",
+    "description": "Descrição atualizada"
+  }
+  ```
+- **Resposta esperada:** 📥
+  ```json
+  {
+    "_id": "id_da_tarefa",
+    "title": "Tarefa Atualizada",
+    "description": "Descrição atualizada",
+    "createdAt": "2024-12-13T00:00:00.000Z"
+  }
+  ```
+### **4. Excluir uma tarefa** ❌
+- **Método:** `DELETE` 🗑️
+- **URL:** `http://localhost:3000/api/tasks/:id` 🌐
+- **Resposta esperada:** 📥
+  ```json
+  {
+    "message": "Tarefa deletada com sucesso"
+  }
+  ```
 ---
-
-### 🛠️ **Ferramentas Sugeridas**
-
-#### **Linguagens e Frameworks**:
-- **Node.js**: `Express.js`, `NestJS`.
-- **Python**: `Flask`, `FastAPI`, `Django REST Framework`.
-- **PHP**: `Laravel`, `Slim Framework`.
-- **C#**: `ASP.NET Core`.
-
-#### **Bancos de Dados**:
-- **SQL**: SQLite, PostgreSQL, MySQL.
-- **NoSQL**: MongoDB, Firebase.
-
-#### **Ferramentas de Teste**:
-- **Postman** ou **APIDog** para testar os endpoints.
-
+## **Configuração do Banco MongoDB** 🍃
+Se você está começando com o MongoDB, siga este guia para configurá-lo: 📚
+### **1. Criar uma Conta MongoDB Atlas** 🌐
+- Acesse [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) e crie uma conta gratuita. 📝
+- Crie um novo cluster. 🏗️
+### **2. Configurar Usuário e Banco de Dados** 🔐
+- No cluster criado, vá até **Database Access** e configure um usuário com login e senha. 🔑
+- Em **Databases**, crie um novo banco de dados. 💾
+### **3. Obter a URL de Conexão** 🌍
+- No cluster, clique em **Connect** > **Connect your application**. 🔗
+- Copie a URL fornecida, que será algo como: 📋
+  ```
+  mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
+  ```
+- Substitua `<username>`, `<password>`, `<cluster>` e `<database>` pelos valores do seu banco. 🔑
+### **4. Testar a Conexão Localmente** 🧪
+- No terminal, execute: 💻
+  ```bash
+  mongo "mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority"
+  ```
+- Se tudo estiver configurado corretamente, você verá a conexão estabelecida com sucesso. ✅
 ---
-
-### ✅ **Critérios de Avaliação**
-
-Sua solução será avaliada com base nos seguintes critérios:
-
-#### **1. Funcionalidade**
-- Atende a todos os requisitos obrigatórios?
-- Funcionalidades opcionais foram implementadas?
-
-#### **2. Código e Organização**
-- O código é limpo e bem estruturado?
-- As boas práticas foram seguidas?
-- Existe separação clara entre camadas (se aplicável)?
-
-#### **3. Documentação**
-- Há um arquivo `README.md` claro explicando como rodar e testar a API?
-- A documentação dos endpoints está bem descrita?
-
-#### **4. Criatividade**
-- Há alguma funcionalidade ou diferencial criativo?
-
+## **Contribuições** 🤝
+Contribuições são bem-vindas! Abra uma **issue** ou envie um **pull request** com melhorias. 🚀
 ---
+<<<<<<< HEAD
 
 ### 📬 **Entrega do Projeto**
 
@@ -110,3 +149,7 @@ O vencedor será reconhecido como **@Vencedor da Semana**, recebendo:
 ---
 
 🎉 **Boa sorte e divirta-se codando!** Estamos ansiosos para ver o que você vai criar. 🚀
+=======
+## **Licença** 📄
+Este projeto está licenciado sob a Licença MIT. ⚖️
+>>>>>>> a8b213c6606a3039938ccaefc83b15e6490f43c0
