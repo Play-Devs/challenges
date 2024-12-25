@@ -1,106 +1,144 @@
-## 🎯 **Desafio da Semana (21/12/2024)**  
 
-### 📝 **Sistema de Login Seguro com Tela de Perfil Personalizada**  
 
-Bem-vindo(a) ao desafio da semana na **Play Devs!** 🎉  
-O foco desta vez é em **segurança e personalização**, com o objetivo de criar um sistema de login seguro, que inclua uma tela de perfil do usuário e destaque as melhores práticas de criptografia para armazenamento de senhas. 🚀  
+# 🚀 **Projeto de Autenticação, Blog e Personalização de Perfil com Node.js** 🧑‍💻
 
----  
+Este projeto é uma aplicação completa com **autenticação de usuários**, **blog simples** e **personalização de perfil**. Utiliza **Node.js**, **Express**, **MongoDB**, **JWT (JSON Web Token)** e **Multer** para upload de fotos de perfil. O sistema também inclui uma funcionalidade para redefinir a senha via e-mail. Os dados dos posts e perfis são armazenados no **MongoDB**, garantindo persistência e segurança. 💻🔒📖🖼️
 
-### 🎯 **Objetivo do Desafio**  
+---
 
-Desenvolver um sistema de autenticação que:  
-1. Permita que usuários se registrem e façam login de forma segura.  
-2. Implemente criptografia para proteger senhas no banco de dados.  
-3. Inclua uma tela de perfil onde o usuário possa visualizar e editar suas informações.  
+# Clique para ver o Vídeo de Demonstração ⬇️
+[![Demo do Projeto](https://img.youtube.com/vi/E2tpsKQCpNM/maxresdefault.jpg)](https://youtu.be/E2tpsKQCpNM)
 
----  
+---
 
-### 🚀 **Requisitos**  
+## 📋 **Funcionalidades**:
 
-#### **Funcionalidades Obrigatórias**  
-1. **Registro de Usuário**:  
-   - Campos obrigatórios: Nome, e-mail, senha.  
-   - A senha deve ser armazenada utilizando um algoritmo de hash seguro (ex.: bcrypt, Argon2).  
+- **Login de Usuário**: Acesso com e-mail e senha 🔐💻  
+  - Limite de 5 tentativas de login falhadas. Após atingir esse limite, o login é bloqueado por 15 minutos.
+- **Registro de Usuário**: Cadastro de novos usuários 📥✍️
+- **Blog**: Usuários podem criar e visualizar posts 📝📖
+- **Armazenamento de Posts e Perfis**: Dados são salvos no **MongoDB**, incluindo posts e fotos de perfil 🔄💾
+- **Personalização de Perfil**: Usuários podem alterar nome, e-mail e foto de perfil 🖼️🔧
+- **Redefinição de Senha**: Os usuários podem redefinir suas senhas através de um link enviado por e-mail 📧🔑
+- **API Backend**: Com rotas protegidas e autenticação via **JWT** 🔑🖥️
+- **Upload de Arquivos**: Usuários podem enviar imagens para seu perfil utilizando **Multer** 📷📂
 
-2. **Login de Usuário**:  
-   - Validação do e-mail e senha.  
-   - Retornar mensagens claras em caso de erro (ex.: "Usuário não encontrado" ou "Senha incorreta").  
+---
 
-3. **Tela de Perfil**:  
-   - Mostrar informações do usuário (nome, e-mail, data de registro).  
-   - Permitir edição de nome e e-mail.  
-   - Exibir uma mensagem personalizada de boas-vindas (ex.: "Bem-vindo de volta, [Nome]!").  
+## 🚀 **Tecnologias Utilizadas**:
 
-4. **Segurança**:  
-   - Implementar autenticação por **JWT** para proteger rotas privadas.  
-   - Proteger contra ataques de força bruta com limite de tentativas de login.  
+- **Node.js**: Plataforma de backend 🖥️⚙️
+- **Express**: Framework para criação de rotas e servidor ⚡📡
+- **MongoDB**: Banco de dados NoSQL para armazenar posts e usuários 📄🗃️
+- **JWT (JSON Web Token)**: Autenticação segura para as rotas 🚡🔒
+- **Multer**: Middleware para lidar com o upload de arquivos (fotos de perfil) 📷💾
+- **Nodemailer**: Envio de e-mails para redefinição de senha 📧📬
+- **CORS**: Permite a comunicação entre diferentes origens (cross-origin resource sharing) 🔄🌐
+- **Path**: Módulo para lidar com caminhos de diretórios e arquivos no servidor 🛠️🗂️
+- **Express JSON**: Middleware para análise de dados no formato JSON 📂🔍
 
-#### **Extras (para pontos extras)**  
-- Adicionar **autenticação de dois fatores (2FA)** usando e-mail ou aplicativo autenticador.  
-- Implementar **recuperação de senha** com envio de e-mail para redefinição.  
-- Criar logs de auditoria para acompanhar tentativas de login e ações do usuário.  
+---
 
----  
+## ⚙️ **Configuração do Projeto**:
 
-### 🛠️ **Ferramentas Sugeridas**  
+### 1. **Clonar o Repositório**:
+Clone este repositório para o seu computador:
 
-#### **Linguagens e Frameworks**  
-- **Node.js**: `Express.js`, `NestJS`.  
-- **Python**: `Flask`, `Django`.  
-- **PHP**: `Laravel`.  
-- **C#**: `ASP.NET Core`.  
+```bash
+git clone https://github.com/OseiasSilva021/mini-blog-com-jwt.git
+```
 
-#### **Bibliotecas de Segurança**  
-- **bcrypt** ou **Argon2** para hashing de senhas.  
-- **jsonwebtoken** para autenticação JWT.  
+### 2. **Instalar Dependências**:
+Navegue até a pasta do projeto e instale as dependências:
 
-#### **Extras**  
-- **Validator.js** ou similares para validação de campos.  
-- **Nodemailer** ou **SendGrid** para envio de e-mails.  
+```bash
+cd mini-blog-com-jwt
+npm install
+```
 
----  
+### 3. **Configurar o Banco de Dados**:
+Este projeto utiliza o **MongoDB**. Você precisará de uma instância do MongoDB rodando. Configure a conexão no arquivo `config/db.js`.
 
-### ✅ **Critérios de Avaliação**  
+### 4. **Configurar o Envio de E-mails**:
+Configure o **Nodemailer** no arquivo `.env` com as credenciais do seu provedor de e-mail (como Gmail, Outlook, etc.). 📧🔧
 
-#### **1. Funcionalidade**  
-- O sistema atende a todos os requisitos obrigatórios?  
-- As funcionalidades extras foram implementadas?  
+---
 
-#### **2. Segurança**  
-- As senhas estão devidamente protegidas?  
-- Há proteção contra ataques comuns (ex.: força bruta, injeção SQL)?  
+## 🛠️ **Executando o Projeto**:
 
-#### **3. Interface**  
-- A tela de perfil é funcional e amigável?  
-- O design é responsivo e bem estruturado?  
+Para rodar o servidor, utilize o comando abaixo:
 
-#### **4. Código e Organização**  
-- O código é limpo e bem estruturado?  
-- Boas práticas de desenvolvimento foram seguidas?  
+```bash
+npm start
+```
 
-#### **5. Criatividade**  
-- Há alguma funcionalidade ou diferencial criativo?  
+Isso iniciará o servidor na porta `3000`, e o backend ficará acessível em `http://localhost:3000`. 🎉🚀
 
----  
+---
 
-### 📬 **Entrega do Projeto**  
+## 🌐 **Frontend**:
 
-- Submeta o projeto na **pasta do desafio da semana** no repositório da Play Devs.  
-- Inclua um arquivo `README.md` explicando como rodar e testar o sistema.
-- Vídeos ou screenshots são bem-vindos para mostrar o projeto em ação.
+O frontend é uma interface simples com **HTML**, **CSS** e **JavaScript**. Ele permite que os usuários façam login, se registrem, interajam com o **blog**, redefinam suas senhas e **personalizem seu perfil**.
 
----  
+### Principais páginas:
 
-### 🌟 **Premiação**  
+- **Login**: Página para autenticar o usuário 🔍🔐
+- **Registro**: Página para criar uma nova conta ✍️📋
+- **Redefinição de Senha**: Página onde o usuário solicita o envio de um link para redefinir a senha 📧🔑
+- **Blog**: Página onde os usuários podem criar posts e visualizar posts de outros usuários 📖📝
+- **Perfil**: Página para o usuário personalizar seu perfil, com a opção de alterar nome, e-mail e foto 🖼️✨
 
-O vencedor será reconhecido como **@Vencedor da Semana**, recebendo:  
-- 🧪 **20% de XP Boost**  
-- 🪙 **3000 DevCoins**  
-- 📢 **1 menção a @everyone ou @Membros**
+### **Personalização de Perfil**:
 
----  
+- **Alterar Nome**: O usuário pode alterar seu nome de usuário 📝🔤.
+- **Alterar E-mail**: O usuário pode atualizar seu e-mail 📨💬.
+- **Foto de Perfil**: O usuário pode fazer upload de uma nova foto de perfil 📷🖼️.
 
-🎉 **Boa sorte e divirta-se!** estamos ansiosos para ver sua solução.
+As mudanças são feitas em tempo real e salvas no **MongoDB** para persistência. 🛠️💾
 
-E não esqueça que o Natal está chegando! 🎄🎁
+---
+
+## 📝 **Estrutura do Blog**:
+
+### Como funciona o blog:
+1. Os usuários podem criar posts no frontend. 📝
+2. Cada post contém um título e um conteúdo. 🖋️
+3. Os posts são armazenados no **MongoDB** para persistência, podendo ser acessados a qualquer momento. 📄💾
+
+### Funcionalidades do Blog:
+- **Criar Post**: Usuários podem adicionar novos posts. ✍️📖
+- **Visualizar Posts**: Os posts são exibidos na página do blog. 👀📜
+- **Armazenamento no MongoDB**: Os posts ficam armazenados no banco de dados, permitindo a persistência entre sessões. 💾🔄
+
+---
+
+## 💬 **Como Contribuir**:
+
+1. **Faça um Fork** deste repositório. 🍴
+2. Crie uma branch para sua nova feature:
+
+```bash
+git checkout -b minha-nova-feature
+```
+
+3. Realize as alterações e faça um commit:
+
+```bash
+git commit -m 'Adiciona nova feature'
+```
+
+4. Faça o Push da sua branch:
+
+```bash
+git push origin minha-nova-feature
+```
+
+5. Abra um **Pull Request** para a branch principal deste repositório. 🔄👨‍💻
+
+---
+
+### **Licença**:
+Este projeto está licenciado sob a licença MIT ✍️📜
+
+--- 
+
