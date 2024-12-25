@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .profile-info {
+            margin-bottom: 20px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Perfil do Usuário</h2>
+        <div id="welcomeMessage" class="profile-info"></div>
+
+        <div class="profile-info">
+            <img id="profileImage" src="default-profile.png" alt="Imagem de Perfil">
+            
+            <!-- Edição de Nome -->
+            <div id="userName">
+                Nome: <span id="currentName"> </span>
+                <input type="text" id="editName" placeholder="Digite o novo nome">
+                <button id="saveNameButton">Salvar Nome</button>
+                <div id="nameError" class="error-message"></div>
+            </div>
+
+            <!-- Edição de Email -->
+            <div id="userEmail">
+                Email: <span id="currentEmail"></span>
+                <input type="email" id="editEmail" placeholder="Digite o novo e-mail">
+                <button id="saveEmailButton">Salvar E-mail</button>
+                <div id="emailError" class="error-message"></div>
+            </div>
+            
+            <div id="userDate">Data de Registro: </div>
+        </div>
+
+        <input type="file" id="profileImageInput" accept="image/*">
+        <button id="uploadImageButton">Enviar Imagem</button>
+
+        <button id="logoutButton">Sair</button>
+        <a href="blog.html"><button >Voltar para o Blog</button></a>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:3000';
+
+        // Verifica se o usuário está autenticado
+        function isAuthenticated() {
+            const token = localStorage.getItem('jwtToken');
+            return !!token;
+        }
+
+        // Carrega os dados do usuário
+        async function loadUserData() {
+            if (!isAuthenticated()) {
+                alert('Você precisa estar logado para acessar esta página.');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/users/profile`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                    }
+                });
+
+                if (!response.ok) throw new Error('Erro ao carregar os dados do usuário.');
+
+                const data = await response.json();
+                document.getElementById('welcomeMessage').textContent = `Bem-vindo, ${data.name}!`;
+                document.getElementById('currentName').textContent = data.name;
+                document.getElementById('currentEmail').textContent = data.email;
+
+                const registrationDate = new Date(data.createdAt);
+                document.getElementById('userDate').textContent = `Data de Registro: ${registrationDate.toLocaleDateString()}`;
+
+                document.getElementById('profileImage').src = "../" + data.profileImage || 'default-profile.png';
+            } catch (error) {
+                console.error(error);
+                alert('Erro ao carregar dados do usuário.');
+            }
+        }
+
+        // Função para salvar a nova imagem de perfil
+        async function uploadProfileImage() {
+            const fileInput = document.getElementById('profileImageInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Selecione uma imagem antes de enviar.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('profileImage', file);
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/users/profile-image`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                    },
+                    body: formData
+                });
+
+                if (!response.ok) throw new Error('Erro ao fazer upload da imagem.');
+
+                const data = await response.json();
+                document.getElementById('profileImage').src = "../" + data.profileImage;
+                alert('Imagem de perfil atualizada com sucesso!');
+            } catch (error) {
+                console.error(error);
+                alert('Erro ao enviar a imagem.');
+            }
+        }
+
+        // Salva o novo nome do usuário
+        async function saveName() {
+            const newName = document.getElementById('editName').value.trim();
+            const nameError = document.getElementById('nameError');
+
+            if (!newName) {
+                nameError.textContent = 'Por favor, digite um nome válido!';
+                return;
+            } else {
+                nameError.textContent = '';
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/users/profile`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                    },
+                    body: JSON.stringify({ name: newName })
+                });
+
+                if (!response.ok) throw new Error('Erro ao atualizar o nome.');
+
+                const data = await response.json();
+                document.getElementById('currentName').textContent = data.name;
+                document.getElementById('editName').value = '';
+                alert('Nome atualizado com sucesso!');
+            } catch (error) {
+                console.error(error);
+                alert('Erro ao salvar o novo nome.');
+            }
+        }
+
+        // Salva o novo e-mail do usuário
+        async function saveEmail() {
+            const newEmail = document.getElementById('editEmail').value.trim();
+            const emailError = document.getElementById('emailError');
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!newEmail || !emailRegex.test(newEmail)) {
+                emailError.textContent = 'Por favor, digite um e-mail válido!';
+                return;
+            } else {
+                emailError.textContent = '';
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/users/profile`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                    },
+                    body: JSON.stringify({ email: newEmail })
+                });
+
+                if (!response.ok) throw new Error('Erro ao atualizar o e-mail.');
+
+                const data = await response.json();
+                document.getElementById('currentEmail').textContent = data.email;
+                document.getElementById('editEmail').value = '';
+                alert('E-mail atualizado com sucesso!');
+            } catch (error) {
+                console.error(error);
+                alert('Erro ao salvar o novo e-mail.');
+            }
+        }
+
+        // Função para logout
+        function logout() {
+            localStorage.removeItem('jwtToken');
+            alert('Você saiu com sucesso!');
+            window.location.href = 'index.html';
+        }
+
+        // Inicializa a página
+        loadUserData();
+
+        // Eventos de clique nos botões
+        document.getElementById('saveNameButton').addEventListener('click', saveName);
+        document.getElementById('saveEmailButton').addEventListener('click', saveEmail);
+        document.getElementById('logoutButton').addEventListener('click', logout);
+        document.getElementById('uploadImageButton').addEventListener('click', uploadProfileImage);
+    </script>
+</body>
+</html>
