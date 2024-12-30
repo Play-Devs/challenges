@@ -102,5 +102,3 @@ O vencedor será reconhecido como **@Vencedor da Semana**, recebendo:
 ---  
 
 🎉 **Boa sorte e divirta-se!** estamos ansiosos para ver sua solução.
-
-E não esqueça que o Natal está chegando! 🎄🎁
